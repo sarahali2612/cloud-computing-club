@@ -1,6 +1,6 @@
 # ☁️ Galgotias Cloud Computing Club
 
-> Build. Deploy. Scale. Repeat.
+<p>Build. Deploy. Scale. Repeat. 🚀</p>
 
 ## About
 
