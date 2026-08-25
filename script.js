@@ -15,3 +15,20 @@ registerButtons.forEach(function(button) {
     });
 
 });
+// Club registration form
+
+const joinForm = document.getElementById("joinForm");
+const formMessage = document.getElementById("formMessage");
+
+joinForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    formMessage.textContent =
+        "Welcome to the Cloud Computing Club, " + name + "! ☁️🚀";
+
+    joinForm.reset();
+
+});
