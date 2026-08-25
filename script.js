@@ -1,3 +1,5 @@
+const SUPABASE_URL = "PASTE_YOUR_API_URL_HERE";uezxymkecrdmixopybxq.supabase.co
+const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";sb_publishable_qtktn0Q4hNZkrOCj8nYnpg_g6OYdHKo
 // Welcome message
 console.log("Galgotias Cloud Computing Club loaded! ☁️");
 
