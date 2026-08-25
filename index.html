@@ -153,17 +153,34 @@
 
         <h2>Join the Club</h2>
 
-        <form>
+      <form id="joinForm">
 
-            <input type="text" placeholder="Your Name">
+    <input
+        type="text"
+        id="name"
+        placeholder="Your Name"
+        required
+    >
 
-            <input type="email" placeholder="Your Email">
+    <input
+        type="email"
+        id="email"
+        placeholder="Your Email"
+        required
+    >
 
-            <input type="text" placeholder="Course / Year">
+    <input
+        type="text"
+        id="course"
+        placeholder="Course / Year"
+        required
+    >
 
-            <button type="submit">Join Us</button>
+    <button type="submit">Join Us</button>
 
-        </form>
+</form>
+
+<p id="formMessage"></p>  
 
     </section>
 
