@@ -26,7 +26,37 @@ registerButtons.forEach(function(button) {
 const joinForm = document.getElementById("joinForm");
 const formMessage = document.getElementById("formMessage");
 
-joinForm.addEventListener("submit", function(event) {
+joinForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const admission_no = document.getElementById("admission_no").value;
+    const course = document.getElementById("course").value;
+
+    const { error } = await supabaseClient
+        .from("members")
+        .insert([
+            {
+                name: name,
+                email: email,
+                admission_no: admission_no,
+                course: course
+            }
+        ]);
+
+    if (error) {
+        formMessage.textContent = "Something went wrong. Please try again.";
+        console.error(error);
+        return;
+    }
+
+    formMessage.textContent =
+        "Welcome to the Cloud Computing Club, " + name + "! ☁️🚀";
+
+    joinForm.reset();
+});
 
     event.preventDefault();
 
