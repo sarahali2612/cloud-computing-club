@@ -1,9 +1,12 @@
-const SUPABASE_URL = "PASTE_YOUR_API_URL_HERE";uezxymkecrdmixopybxq.supabase.co
-const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";sb_publishable_qtktn0Q4hNZkrOCj8nYnpg_g6OYdHKo
+
+const SUPABASE_URL = "https://uezxymkecrdmixopybxq.supabase.co";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";sb_publishable_qtktn0Q4hNZkrOCj8nYnpg_g6OYdHKo
+
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+
 // Welcome message
 console.log("Galgotias Cloud Computing Club loaded! ☁️");
 
@@ -11,23 +14,19 @@ console.log("Galgotias Cloud Computing Club loaded! ☁️");
 const registerButtons = document.querySelectorAll(".card button");
 
 registerButtons.forEach(function(button) {
-
     button.addEventListener("click", function() {
-
-        const eventName = button.parentElement.querySelector("h3").textContent;
+        const eventName =
+            button.parentElement.querySelector("h3").textContent;
 
         alert("Registration for " + eventName + " is coming soon! 🚀");
-
     });
-
 });
-// Club registration form
 
+// Club registration form
 const joinForm = document.getElementById("joinForm");
 const formMessage = document.getElementById("formMessage");
 
 joinForm.addEventListener("submit", async function(event) {
-
     event.preventDefault();
 
     const name = document.getElementById("name").value;
@@ -47,7 +46,8 @@ joinForm.addEventListener("submit", async function(event) {
         ]);
 
     if (error) {
-        formMessage.textContent = "Something went wrong. Please try again.";
+        formMessage.textContent =
+            "Something went wrong. Please try again.";
         console.error(error);
         return;
     }
@@ -56,15 +56,4 @@ joinForm.addEventListener("submit", async function(event) {
         "Welcome to the Cloud Computing Club, " + name + "! ☁️🚀";
 
     joinForm.reset();
-});
-
-    event.preventDefault();
-
-    const name = document.getElementById("name").value;
-
-    formMessage.textContent =
-        "Welcome to the Cloud Computing Club, " + name + "! ☁️🚀";
-
-    joinForm.reset();
-
 });
