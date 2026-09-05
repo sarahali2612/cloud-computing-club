@@ -11,35 +11,69 @@ html {
 body {
     font-family: Arial, sans-serif;
     background: #f5f7fb;
-    color: #172033;
+    color: #0a2264;
     line-height: 1.6;
 }
 
 /* Navigation */
 
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; 
+  background-color: #fafafa;
+  transition: transform 0.3s ease-in-out; /* Creates a smooth slide effect */
+  z-index: 1000; /* Keeps it on top of other content */
+}
+
+/* Class added by JavaScript when scrolling down */
+.nav-hidden {
+  transform: translateY(-100%); /* Slides the navbar out of view */
+}
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 7%;
     background: white;
-    position: sticky;
-    top: 0;
+    background: transparent;
 }
 
 nav a {
     text-decoration: none;
-    color: #172033;
+    color: #0a2264;
     margin-left: 20px;
 }
 
 /* Hero */
 
 .hero {
+    position: relative;
     text-align: center;
-    padding: 120px 20px;
-    background: #172033;
+    padding: 140px 20px;
+    min-height: 60vh;
     color: white;
+    overflow: hidden;
+    background: transparent;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    background-image: url("hero_bg.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -56,7 +90,7 @@ nav a {
     display: inline-block;
     padding: 12px 25px;
     background: white;
-    color: #172033;
+    color: #0a2264;
     text-decoration: none;
     border-radius: 8px;
 }
@@ -124,6 +158,6 @@ input {
 footer {
     text-align: center;
     padding: 30px;
-    background: #172033;
+    background: #0a2264;
     color: white;
 }
