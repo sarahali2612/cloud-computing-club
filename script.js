@@ -1,7 +1,5 @@
-
-const SUPABASE_URL = "https://uezxymkecrdmixopybxq.supabase.co";
-const SUPABASE_KEY = "sb_publishable_qtktn0Q4hNZkrOCj8nYnpg_g6OYdHKo"
-
+const SUPABASE_URL = "https://emseytrgzkkxjarhlzul.supabase.co";
+const SUPABASE_KEY = "sb_publishable_Cl97Ii28wfM86AJgNTsAnA_Y849mgWw";
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
@@ -29,10 +27,14 @@ const formMessage = document.getElementById("formMessage");
 joinForm.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const admission_no = document.getElementById("admission_no").value;
-    const course = document.getElementById("course").value;
+    const submitButton = joinForm.querySelector("button[type=submit]");
+    submitButton.disabled = true;
+    formMessage.textContent = "Saving your membership details...";
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const admission_no = document.getElementById("admission_no").value.trim();
+    const course = document.getElementById("course").value.trim();
 
     const { error } = await supabaseClient
         .from("members")
@@ -46,9 +48,11 @@ joinForm.addEventListener("submit", async function(event) {
         ]);
 
     if (error) {
-        formMessage.textContent =
-            "Something went wrong. Please try again.";
+        formMessage.textContent = error.code === "23505"
+            ? "These details are already registered."
+            : "We could not save your details. Please try again.";
         console.error(error);
+        submitButton.disabled = false;
         return;
     }
 
@@ -56,4 +60,25 @@ joinForm.addEventListener("submit", async function(event) {
         "Welcome to the Cloud Computing Club, " + name + "! ☁️🚀";
 
     joinForm.reset();
+    submitButton.disabled = false;
+});
+
+
+// Navbar smooth scroll up
+let lastScrollY = window.scrollY;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // User is scrolling down - hide the navbar
+    navbar.classList.add("nav-hidden");
+  } else {
+    // User is scrolling up - show the navbar
+    navbar.classList.remove("nav-hidden");
+  }
+
+  // Update the reference point for the next scroll event
+  lastScrollY = currentScrollY;
 });

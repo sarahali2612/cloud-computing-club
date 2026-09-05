@@ -13,9 +13,8 @@
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <h2>☁️ GCC Club</h2>
-
+    <nav id="navbar">
+        <a href="#home"><h2><img src="logo.ico" height="50"> GCC Club</h2></a>
         <div>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -29,9 +28,8 @@
 
     <!-- Hero -->
     <section id="home" class="hero">
-
+        
         <h1>Galgotias Cloud Computing Club</h1>
-
         <p>Build. Deploy. Scale. Repeat.</p>
 
         <a href="#join" class="button">Join the Club</a>
@@ -153,7 +151,9 @@
 
         <h2>Join the Club</h2>
 
-      <form id="joinForm">
+            <form id="joinForm">
+
+        <label for="name">Your Name</label>
 
     <input
     type="text"
@@ -162,6 +162,8 @@
     required
 >
 
+<label for="admission_no">Admission Number</label>
+
 <input
     type="text"
     id="admission_no"
@@ -169,12 +171,16 @@
     required
 >
 
+    <label for="email">Your Email</label>
+
     <input
         type="email"
         id="email"
         placeholder="Your Email"
         required
     >
+
+        <label for="course">Course / Year</label>
 
     <input
         type="text"
@@ -187,7 +193,7 @@
 
 </form>
 
-<p id="formMessage"></p> 
+<p id="formMessage" role="status" aria-live="polite"></p> 
 
     </section>
 
